@@ -1,9 +1,12 @@
 ##Positive Testing with Retrofit
 ###Category Test:
->readCategoryTest
+>readCategoryTest  
+>readCategoryDBTest
 ###Product Tests:
 >createProductTest  
 >readProductsTest  
 >readProductIdTest  
 >updateProductTest  
->deleteProductTest
+>updateProductDBTest  
+>deleteProductTest  
+>deleteProductDBTest 
