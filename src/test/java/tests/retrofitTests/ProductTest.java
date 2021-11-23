@@ -7,7 +7,6 @@ import dto.retrofitDto.Product;
 import dto.retrofitEnums.CategoryType;
 import dto.retrofitService.ProductService;
 import dto.retrofitUtils.DbUtils;
-import dto.retrofitUtils.PrettyLogger;
 import dto.retrofitUtils.RetrofitUtils;
 import lombok.SneakyThrows;
 import okhttp3.ResponseBody;
@@ -136,23 +135,5 @@ public class ProductTest {
                 () -> assertThat(productIdDBUpdated.getTitle(), equalTo(productIdDB.getTitle())),
                 () -> assertThat(productIdDBUpdated.getPrice(), equalTo(productIdDB.getPrice())),
                 () -> assertThat(productIdDBUpdated.getCategory_id(), equalTo(productIdDB.getCategory_id())));
-    }
-
-    @Test
-    void deleteProductTest() throws IOException {
-        responseCreate = createProduct();
-        Response<ResponseBody> response = productService.deleteProduct(id).execute();
-        PrettyLogger.DEFAULT.log(response.toString());
-        assertThat(response.isSuccessful(), CoreMatchers.is(true));
-        assertThat(response.code(), equalTo(200));
-    }
-
-    @Test
-    void deleteProductDBTest() {
-        responseCreate = createProduct();
-        Integer countProductsBefore = DbUtils.countProducts(productsMapper);
-        DbUtils.deleteProductId(productsMapper, id);
-        Integer countProductsAfter = DbUtils.countProducts(productsMapper);
-        assertThat(countProductsAfter, equalTo(countProductsBefore - 1));
     }
 }
