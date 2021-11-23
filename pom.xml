@@ -38,19 +38,6 @@
                     <reportVersion>2.14.0</reportVersion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <executions>
-                    <execution>
-                        <id>Generate MyBatis Artifacts</id>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -66,7 +53,6 @@
                 </includes>
             </resource>
         </resources>
-
     </build>
 
     <dependencies>
@@ -169,12 +155,5 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
-
-
-
-
-
-
-
     </dependencies>
 </project>
